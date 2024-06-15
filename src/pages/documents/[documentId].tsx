@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import { DocumentViewer } from "@/components/DocumentViewer";
 import { useWindowSize } from "react-use";
 
 const DynamicDocumentViewer = dynamic(
@@ -16,5 +15,5 @@ export default function DocumentPage() {
   const { width, height } = useWindowSize();
   const { documentId } = router.query as { documentId: string };
 
-  return <DocumentViewer documentId={documentId} width={width} />;
+  return <DynamicDocumentViewer documentId={documentId} width={width} />;
 }

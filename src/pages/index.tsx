@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import fsp from "fs/promises";
 import Link from "next/link";
+import { getDocuments } from "@/lib/documents";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,9 +28,7 @@ export default function Home({
 }
 
 export const getServerSideProps = (async () => {
-  const documentsDir = "./public/documents";
-
-  const documents = await fsp.readdir(documentsDir);
+  const documents = await getDocuments();
 
   return { props: { documents } };
 }) satisfies GetServerSideProps<{ documents: string[] }>;
