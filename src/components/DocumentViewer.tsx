@@ -7,10 +7,8 @@ import { getPdfJson } from "@/lib/api";
 import { BoundingBox } from "@/components/ui/BoundingBox";
 
 if (typeof window !== "undefined") {
-  pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    "pdfjs-dist/build/pdf.worker.min.mjs",
-    import.meta.url,
-  ).toString();
+  const workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+  pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 }
 
 export function DocumentViewer({

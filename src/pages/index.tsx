@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import fsp from "node:fs/promises";
+import fsp from "fs/promises";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
